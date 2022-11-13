@@ -1,16 +1,10 @@
 import random
-def get_random_password() -> str:
-    big_letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    lit_letters = "abcdefghijklmnopqrstuvwxyz"
-    numbers = "0123456789"
-    summ = ''.join([big_letters, lit_letters, numbers ]) #объединение трех строк в одну
-    a = random.sample(summ, 8)
-    b = (''.join(map(str,a)))
-    return b
+def get_unique_list_numbers() -> list[int]:
+    spisok = [i for i in range(-10, 11, 1)] #список с числами от -10 до 10
+    random.shuffle(spisok, random.random) #случайная последовательность чисел в списке
+    random_values = spisok[:15]
+    return random_values
 
-
-      #TODO написать функцию генерации случайных паролей
-
-
-
-print(get_random_password())
+list_unique_numbers = get_unique_list_numbers()
+print(list_unique_numbers)
+print(len(list_unique_numbers) == len(set(list_unique_numbers)))
